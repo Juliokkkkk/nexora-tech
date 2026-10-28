@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sobre Nós | Nexora Tech</title>
+
+    <link rel="icon" type="image/png" href="logo.png">
+
+    <meta name="description" content="Conheça a Nexora Tech, uma empresa focada no desenvolvimento de sistemas personalizados e soluções digitais para negócios.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #080F1D;
+            --bg-secondary: #0C1628;
+            --card: #111F35;
+            --card-hover: #162945;
+            --primary: #3478F6;
+            --primary-light: #62A0FF;
+            --text: #F8FAFC;
+            --text-secondary: #A9B8CC;
+            --border: rgba(148, 163, 184, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* HEADER */
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 25px;
+            padding: 20px 8%;
+            background: rgba(8, 15, 29, 0.92);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--primary), #2452C7);
+            color: #FFFFFF;
+            font-size: 24px;
+            font-weight: 800;
+            box-shadow: 0 5px 20px rgba(52, 120, 246, 0.2);
+        }
+
+        .logo h1 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .logo h1 span {
+            color: var(--primary-light);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 28px;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--primary-light);
+        }
+
+        nav .nav-cta {
+            background: var(--primary);
+            color: #FFFFFF;
+            padding: 10px 18px;
+            border-radius: 9px;
+            transition: 0.3s;
+        }
+
+        nav .nav-cta:hover {
+            background: #2563D9;
+            color: #FFFFFF;
+            transform: translateY(-2px);
+        }
+
+        /* HERO */
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            padding: 95px 8% 85px;
+            background:
+                radial-gradient(ellipse at 50% 0%, rgba(52, 120, 246, 0.18), transparent 60%),
+                var(--bg);
+        }
+
+        .eyebrow {
+            display: inline-block;
+            color: var(--primary-light);
+            background: rgba(52, 120, 246, 0.1);
+            border: 1px solid rgba(52, 120, 246, 0.25);
+            padding: 7px 15px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 22px;
+        }
+
+        .hero h2 {
+            font-size: clamp(2.2rem, 5vw, 3.7rem);
+            line-height: 1.15;
+            letter-spacing: -1.8px;
+            max-width: 850px;
+            margin: 0 auto 22px;
+        }
+
+        .hero h2 span {
+            color: var(--primary-light);
+        }
+
+        .hero p {
+            max-width: 720px;
+            margin: 0 auto;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+
+        /* SOBRE A EMPRESA */
+
+        .about {
+            padding: 35px 8% 85px;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            align-items: center;
+            gap: 55px;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .about-text h3 span {
+            color: var(--primary-light);
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            font-size: 0.97rem;
+            margin-bottom: 16px;
+        }
+
+        .about-panel {
+            position: relative;
+            padding: 35px;
+            border-radius: 20px;
+            border: 1px solid rgba(52, 120, 246, 0.25);
+            background:
+                radial-gradient(ellipse at top right, rgba(52, 120, 246, 0.16), transparent 60%),
+                linear-gradient(145deg, var(--card), #0D192B);
+        }
+
+        .about-panel h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+
+        .about-panel > p {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            margin-bottom: 25px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 13px;
+            margin-top: 20px;
+        }
+
+        .feature-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            flex-shrink: 0;
+            border-radius: 10px;
+            background: rgba(52, 120, 246, 0.14);
+            color: var(--primary-light);
+            font-size: 18px;
+        }
+
+        .feature h4 {
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+
+        .feature p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        /* MISSÃO, VISÃO E VALORES */
+
+        .values {
+            padding: 85px 8%;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-heading {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 45px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(1.8rem, 4vw, 2.4rem);
+            margin-bottom: 12px;
+        }
+
+        .section-heading p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            padding: 32px 28px;
+            border-radius: 18px;
+            background: linear-gradient(145deg, var(--card), #0D192B);
+            border: 1px solid var(--border);
+            transition: transform 0.3s, border-color 0.3s, background 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            border-color: rgba(52, 120, 246, 0.65);
+            background: linear-gradient(145deg, var(--card-hover), #0D192B);
+        }
+
+        .card-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 54px;
+            height: 54px;
+            margin-bottom: 22px;
+            border-radius: 14px;
+            background: rgba(52, 120, 246, 0.13);
+            border: 1px solid rgba(52, 120, 246, 0.2);
+            color: var(--primary-light);
+            font-size: 25px;
+        }
+
+        .card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 13px;
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+        }
+
+        /* DIFERENCIAIS */
+
+        .differentials {
+            padding: 85px 8%;
+        }
+
+        .differentials-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 45px;
+            align-items: center;
+        }
+
+        .differentials h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            line-height: 1.25;
+            margin-bottom: 18px;
+        }
+
+        .differentials h2 span {
+            color: var(--primary-light);
+        }
+
+        .differentials-intro {
+            color: var(--text-secondary);
+            font-size: 0.96rem;
+        }
+
+        .differential-list {
+            display: grid;
+            gap: 17px;
+        }
+
+        .differential-item {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            padding: 20px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+        }
+
+        .check {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            flex-shrink: 0;
+            border-radius: 9px;
+            background: rgba(52, 120, 246, 0.15);
+            color: var(--primary-light);
+            font-weight: 800;
+        }
+
+        .differential-item h3 {
+            font-size: 0.98rem;
+            margin-bottom: 5px;
+        }
+
+        .differential-item p {
+            color: var(--text-secondary);
+            font-size: 0.87rem;
+        }
+
+        /* CTA */
+
+        .cta-section {
+            padding: 0 8% 90px;
+        }
+
+        .cta-box {
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            padding: 60px 30px;
+            border-radius: 24px;
+            border: 1px solid rgba(52, 120, 246, 0.25);
+            background:
+                radial-gradient(ellipse at top right, rgba(52, 120, 246, 0.2), transparent 55%),
+                linear-gradient(135deg, #101F38, #0C1628);
+        }
+
+        .cta-box h2 {
+            font-size: clamp(1.7rem, 4vw, 2.4rem);
+            line-height: 1.25;
+            margin-bottom: 16px;
+        }
+
+        .cta-box p {
+            color: var(--text-secondary);
+            max-width: 620px;
+            margin: 0 auto 28px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 24px;
+            border-radius: 10px;
+            background: var(--primary);
+            color: #FFFFFF;
+            font-weight: 600;
+            font-size: 0.92rem;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #2563D9;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(52, 120, 246, 0.2);
+        }
+
+        /* FOOTER */
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            padding: 28px 8%;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .footer-brand {
+            color: var(--text);
+            font-weight: 700;
+        }
+
+        .footer-brand span {
+            color: var(--primary-light);
+        }
+
+        /* TABLETS */
+
+        @media (max-width: 1000px) {
+            header {
+                padding: 18px 5%;
+            }
+
+            nav {
+                gap: 18px;
+            }
+
+            .about,
+            .values,
+            .differentials,
+            .cta-section {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .differentials-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        /* CELULARES */
+
+        @media (max-width: 650px) {
+            header {
+                flex-direction: column;
+                padding: 18px 5%;
+                gap: 18px;
+            }
+
+            nav {
+                justify-content: center;
+                gap: 12px 18px;
+            }
+
+            nav a {
+                font-size: 0.83rem;
+            }
+
+            nav .nav-cta {
+                padding: 8px 12px;
+            }
+
+            .hero {
+                padding: 70px 6% 60px;
+            }
+
+            .hero h2 {
+                letter-spacing: -1px;
+            }
+
+            .hero p {
+                font-size: 0.95rem;
+            }
+
+            .about {
+                padding: 30px 5% 65px;
+            }
+
+            .about-text h3 {
+                font-size: 1.5rem;
+            }
+
+            .about-panel {
+                padding: 25px;
+            }
+
+            .values {
+                padding: 65px 5%;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+
+            .card {
+                padding: 27px;
+            }
+
+            .differentials {
+                padding: 65px 5%;
+            }
+
+            .differential-item {
+                padding: 16px;
+            }
+
+            .cta-section {
+                padding: 0 5% 65px;
+            }
+
+            .cta-box {
+                padding: 42px 22px;
+            }
+
+            footer {
+                flex-direction: column;
+                text-align: center;
+                padding: 25px 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="Home.html" class="logo" aria-label="Nexora Tech - Página inicial">
+            <div class="logo-icon">N</div>
+            <h1>Nexora <span>Tech</span></h1>
+        </a>
+
+        <nav>
+            <a href="Home.html">Home</a>
+            <a href="Softwares.html">Softwares</a>
+            <a href="Solucoes.html">Soluções</a>
+            <a href="Sobre.html" class="active">Sobre</a>
+            <a href="contato.html" class="nav-cta">Fale conosco</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- APRESENTAÇÃO -->
+
+        <section class="hero">
+            <span class="eyebrow">QUEM SOMOS</span>
+
+            <h2>
+                Somos a Nexora Tech.<br>
+                <span>Criamos soluções para evoluir.</span>
+            </h2>
+
+            <p>
+                Acreditamos que a tecnologia deve tornar o dia a dia das empresas
+                mais simples, organizado e eficiente. Nosso foco é transformar
+                necessidades reais em soluções digitais úteis para cada negócio.
+            </p>
+        </section>
+
+        <!-- SOBRE A EMPRESA -->
+
+        <section class="about">
+
+            <div class="about-content">
+
+                <div class="about-text">
+                    <h3>
+                        Tecnologia com propósito.<br>
+                        <span>Soluções com direção.</span>
+                    </h3>
+
+                    <p>
+                        A Nexora Tech nasceu da vontade de criar soluções
+                        tecnológicas capazes de resolver problemas reais.
+                        Trabalhamos com desenvolvimento de sistemas e ferramentas
+                        digitais pensadas para as necessidades de cada empresa.
+                    </p>
+
+                    <p>
+                        Nosso objetivo é ajudar negócios a organizar processos,
+                        centralizar informações e aproveitar melhor os recursos
+                        disponíveis por meio da tecnologia.
+                    </p>
+
+                    <p>
+                        Buscamos construir soluções que façam sentido para cada
+                        cliente, considerando seus desafios, objetivos e
+                        possibilidades de crescimento.
+                    </p>
+                </div>
+
+                <div class="about-panel">
+
+                    <h3>Como pensamos a tecnologia</h3>
+
+                    <p>
+                        Cada projeto começa com uma necessidade. Nosso trabalho
+                        é entender esse desafio e avaliar como a tecnologia
+                        pode ajudar.
+                    </p>
+
+                    <div class="feature">
+                        <div class="feature-icon" aria-hidden="true">🎯</div>
+
+                        <div>
+                            <h4>Foco no problema</h4>
+                            <p>Entender a necessidade antes de definir a solução.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature">
+                        <div class="feature-icon" aria-hidden="true">💡</div>
+
+                        <div>
+                            <h4>Desenvolvimento inteligente</h4>
+                            <p>Planejar funcionalidades úteis para cada negócio.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature">
+                        <div class="feature-icon" aria-hidden="true">🤝</div>
+
+                        <div>
+                            <h4>Parceria com o cliente</h4>
+                            <p>Manter alinhamento sobre escopo, prazos e melhorias.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- MISSÃO, VISÃO E VALORES -->
+
+        <section class="values">
+
+            <div class="section-heading">
+                <h2>O que nos orienta</h2>
+
+                <p>
+                    Princípios que ajudam a direcionar nossos projetos,
+                    nossas decisões e a forma como buscamos trabalhar.
+                </p>
+            </div>
+
+            <div class="grid">
+
+                <article class="card">
+                    <div class="card-icon" aria-hidden="true">🚀</div>
+
+                    <h3>Missão</h3>
+
+                    <p>
+                        Desenvolver soluções digitais que ajudem empresas
+                        a organizar processos, enfrentar desafios e trabalhar
+                        de maneira mais eficiente.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon" aria-hidden="true">🔭</div>
+
+                    <h3>Visão</h3>
+
+                    <p>
+                        Construir uma empresa reconhecida pela qualidade
+                        de suas soluções, pela evolução constante e pelo
+                        compromisso com as necessidades dos clientes.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon" aria-hidden="true">💎</div>
+
+                    <h3>Valores</h3>
+
+                    <p>
+                        Valorizar a transparência, a responsabilidade,
+                        a criatividade, o aprendizado contínuo e a busca
+                        por soluções que façam sentido.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- DIFERENCIAIS -->
+
+        <section class="differentials">
+
+            <div class="differentials-content">
+
+                <div>
+                    <h2>
+                        Por que escolher a<br>
+                        <span>Nexora Tech?</span>
+                    </h2>
+
+                    <p class="differentials-intro">
+                        Acreditamos que uma boa solução começa com uma boa
+                        compreensão do negócio. Por isso, buscamos unir
+                        planejamento, comunicação e tecnologia em cada projeto.
+                    </p>
+                </div>
+
+                <div class="differential-list">
+
+                    <div class="differential-item">
+                        <div class="check">✓</div>
+
+                        <div>
+                            <h3>Soluções alinhadas à sua necessidade</h3>
+                            <p>
+                                Cada projeto é planejado considerando o objetivo
+                                e o contexto do cliente.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="differential-item">
+                        <div class="check">✓</div>
+
+                        <div>
+                            <h3>Comunicação transparente</h3>
+                            <p>
+                                Escopo, etapas, prazos e condições devem ser
+                                definidos com clareza.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="differential-item">
+                        <div class="check">✓</div>
+
+                        <div>
+                            <h3>Possibilidade de evolução</h3>
+                            <p>
+                                Os projetos podem ser planejados para receber
+                                melhorias conforme as necessidades mudam.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="differential-item">
+                        <div class="check">✓</div>
+
+                        <div>
+                            <h3>Foco na utilidade</h3>
+                            <p>
+                                Buscamos desenvolver ferramentas que tenham
+                                uma função clara na rotina da empresa.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- CHAMADA PARA CONTATO -->
+
+        <section class="cta-section">
+
+            <div class="cta-box">
+
+                <h2>Vamos construir algo juntos?</h2>
+
+                <p>
+                    Tem um desafio, uma ideia ou um processo que gostaria
+                    de melhorar? Entre em contato com a Nexora Tech para
+                    conversar sobre seu projeto.
+                </p>
+
+                <a href="contato.html" class="btn">
+                    Fale com nossa equipe →
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>
+            © 2026
+            <span class="footer-brand">Nexora <span>Tech</span></span>.
+            Todos os direitos reservados.
+        </p>
+
+        <p>Tecnologia pensada para o seu negócio.</p>
+    </footer>
+
+</body>
+
+</html>

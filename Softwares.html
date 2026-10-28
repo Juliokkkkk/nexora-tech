@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Softwares | Nexora Tech</title>
+    <meta name="description" content="Conheça as soluções digitais da Nexora Tech. Sistemas personalizados para empresas, gestão, agendamentos e muito mais.">
+
+    <link rel="icon" type="image/png" href="logo.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #080F1D;
+            --bg-secondary: #0C1628;
+            --card: #111F35;
+            --card-hover: #162945;
+            --primary: #3478F6;
+            --primary-light: #62A0FF;
+            --text: #F8FAFC;
+            --text-secondary: #A9B8CC;
+            --border: rgba(148, 163, 184, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* HEADER */
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 25px;
+            padding: 20px 8%;
+            background: rgba(8, 15, 29, 0.92);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--primary), #2452C7);
+            color: white;
+            font-size: 24px;
+            font-weight: 800;
+            box-shadow: 0 5px 20px rgba(52, 120, 246, 0.2);
+        }
+
+        .logo h1 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--primary-light);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 28px;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--primary-light);
+        }
+
+        nav .nav-cta {
+            background: var(--primary);
+            color: white;
+            padding: 10px 18px;
+            border-radius: 9px;
+            transition: 0.3s;
+        }
+
+        nav .nav-cta:hover {
+            background: #2563D9;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* HERO */
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            padding: 95px 8% 85px;
+            background:
+                radial-gradient(ellipse at 50% 0%, rgba(52, 120, 246, 0.18), transparent 60%),
+                var(--bg);
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            background: rgba(52, 120, 246, 0.08);
+            filter: blur(80px);
+            top: 10px;
+            left: -100px;
+            pointer-events: none;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            color: var(--primary-light);
+            background: rgba(52, 120, 246, 0.1);
+            border: 1px solid rgba(52, 120, 246, 0.25);
+            padding: 7px 15px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 22px;
+        }
+
+        .hero h2 {
+            font-size: clamp(2.2rem, 5vw, 3.7rem);
+            line-height: 1.15;
+            letter-spacing: -1.8px;
+            max-width: 850px;
+            margin: 0 auto 22px;
+        }
+
+        .hero h2 span {
+            color: var(--primary-light);
+        }
+
+        .hero p {
+            max-width: 680px;
+            margin: 0 auto;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+
+        /* SOFTWARES */
+
+        .softwares {
+            padding: 35px 8% 100px;
+            background: var(--bg);
+        }
+
+        .section-heading {
+            margin-bottom: 38px;
+        }
+
+        .section-heading h3 {
+            font-size: 1.65rem;
+            margin-bottom: 8px;
+        }
+
+        .section-heading p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            min-height: 310px;
+            padding: 30px;
+            background: linear-gradient(145deg, var(--card), #0D192B);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            transition: transform 0.3s, border-color 0.3s, background 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            border-color: rgba(52, 120, 246, 0.65);
+            background: linear-gradient(145deg, var(--card-hover), #0D192B);
+        }
+
+        .card-icon {
+            width: 54px;
+            height: 54px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            border-radius: 14px;
+            background: rgba(52, 120, 246, 0.13);
+            border: 1px solid rgba(52, 120, 246, 0.2);
+            color: var(--primary-light);
+            font-size: 25px;
+        }
+
+        .card h3 {
+            font-size: 1.15rem;
+            line-height: 1.4;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            font-size: 0.91rem;
+            margin-bottom: 24px;
+        }
+
+        .tag {
+            display: inline-block;
+            margin-top: auto;
+            padding: 6px 12px;
+            color: var(--primary-light);
+            background: rgba(52, 120, 246, 0.1);
+            border: 1px solid rgba(52, 120, 246, 0.18);
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* CTA */
+
+        .cta-section {
+            padding: 0 8% 100px;
+        }
+
+        .cta-box {
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            padding: 60px 30px;
+            border-radius: 24px;
+            border: 1px solid rgba(52, 120, 246, 0.25);
+            background:
+                radial-gradient(ellipse at top right, rgba(52, 120, 246, 0.2), transparent 55%),
+                linear-gradient(135deg, #101F38, #0C1628);
+        }
+
+        .cta-box h2 {
+            font-size: clamp(1.7rem, 4vw, 2.4rem);
+            line-height: 1.25;
+            margin-bottom: 16px;
+        }
+
+        .cta-box p {
+            color: var(--text-secondary);
+            max-width: 620px;
+            margin: 0 auto 28px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 24px;
+            border-radius: 10px;
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+            font-size: 0.92rem;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #2563D9;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(52, 120, 246, 0.2);
+        }
+
+        /* FOOTER */
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            padding: 28px 8%;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .footer-brand {
+            color: var(--text);
+            font-weight: 700;
+        }
+
+        .footer-brand span {
+            color: var(--primary-light);
+        }
+
+        /* TABLETS */
+
+        @media (max-width: 1000px) {
+            header {
+                padding: 18px 5%;
+            }
+
+            nav {
+                gap: 18px;
+            }
+
+            .softwares {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+            .grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .cta-section {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+        }
+
+        /* CELULARES */
+
+        @media (max-width: 650px) {
+            header {
+                flex-direction: column;
+                padding: 18px 5%;
+                gap: 18px;
+            }
+
+            nav {
+                justify-content: center;
+                gap: 12px 18px;
+            }
+
+            nav a {
+                font-size: 0.83rem;
+            }
+
+            nav .nav-cta {
+                padding: 8px 12px;
+            }
+
+            .hero {
+                padding: 70px 6% 60px;
+            }
+
+            .hero h2 {
+                letter-spacing: -1px;
+            }
+
+            .hero p {
+                font-size: 0.95rem;
+            }
+
+            .softwares {
+                padding: 25px 5% 70px;
+            }
+
+            .section-heading h3 {
+                font-size: 1.4rem;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+
+            .card {
+                min-height: auto;
+                padding: 25px;
+            }
+
+            .cta-section {
+                padding: 0 5% 70px;
+            }
+
+            .cta-box {
+                padding: 42px 22px;
+            }
+
+            footer {
+                flex-direction: column;
+                text-align: center;
+                padding: 25px 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="Home.html" class="logo" aria-label="Nexora Tech - Página inicial">
+            <div class="logo-icon">N</div>
+            <h1>Nexora <span>Tech</span></h1>
+        </a>
+
+        <nav>
+            <a href="Home.html">Home</a>
+            <a href="Softwares.html" class="active">Softwares</a>
+            <a href="Solucoes.html">Soluções</a>
+            <a href="Sobre.html">Sobre</a>
+            <a href="contato.html" class="nav-cta">Fale conosco</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="hero">
+            <span class="eyebrow">TECNOLOGIA PARA NEGÓCIOS</span>
+
+            <h2>
+                Softwares que transformam<br>
+                <span>ideias em soluções.</span>
+            </h2>
+
+            <p>
+                Desenvolvemos sistemas digitais para simplificar processos,
+                organizar informações e ajudar empresas a crescer com tecnologia.
+            </p>
+        </section>
+
+        <section class="softwares">
+            <div class="section-heading">
+                <h3>Nossas soluções</h3>
+                <p>Conheça as categorias de sistemas que fazem parte do nosso portfólio.</p>
+            </div>
+
+            <div class="grid">
+
+                <article class="card">
+                    <div class="card-icon" aria-hidden="true">⚽</div>
+                    <h3>Gestão Esportiva</h3>
+                    <p>
+                        Organização de atletas, turmas, treinos, presença e informações
+                        administrativas para escolas de futebol e projetos esportivos.
+                    </p>
+                    <span class="tag">Esporte</span>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon" aria-hidden="true">📅</div>
+                    <h3>Sistema de Agendamentos</h3>
+                    <p>
+                        Soluções para organizar horários, serviços e atendimentos de
+                        salões, manicures, barbearias e profissionais de estética.
+                    </p>
+                    <span class="tag">Agendamento</span>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon" aria-hidden="true">📦</div>
+                    <h3>Controle de Estoque</h3>
+                    <p>
+                        Sistemas para registrar produtos, acompanhar movimentações
+                        e facilitar o controle de mercadorias de uma empresa.
+                    </p>
+                    <span class="tag">Gestão empresarial</span>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon" aria-hidden="true">💈</div>
+                    <h3>Gestão para Barbearias</h3>
+                    <p>
+                        Organização de informações e rotinas de barbearias,
+                        com recursos definidos conforme a necessidade do negócio.
+                    </p>
+                    <span class="tag">Serviços</span>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon" aria-hidden="true">🛠️</div>
+                    <h3>Sistemas Personalizados</h3>
+                    <p>
+                        Desenvolvimento de sistemas sob medida para resolver
+                        necessidades específicas e melhorar processos internos.
+                    </p>
+                    <span class="tag">Sob medida</span>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon" aria-hidden="true">📊</div>
+                    <h3>Relatórios e Indicadores</h3>
+                    <p>
+                        Organização de dados e criação de painéis para apoiar
+                        o acompanhamento dos resultados e a tomada de decisões.
+                    </p>
+                    <span class="tag">Análise de dados</span>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="cta-box">
+                <h2>Tem uma ideia para tirar do papel?</h2>
+
+                <p>
+                    Vamos conversar sobre as necessidades do seu negócio e avaliar
+                    como um sistema personalizado pode ajudar sua empresa.
+                </p>
+
+                <a href="contato.html" class="btn">Solicitar orçamento →</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 <span class="footer-brand">Nexora <span>Tech</span></span>. Todos os direitos reservados.</p>
+        <p>Tecnologia pensada para o seu negócio.</p>
+    </footer>
+
+</body>
+</html>
